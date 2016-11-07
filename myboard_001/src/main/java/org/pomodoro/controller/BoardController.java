@@ -76,4 +76,22 @@ public class BoardController {
 		
 		return "redirect:/board/listAll";
 	}
+	
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public void modifyGET(int bno, Model model) throws Exception {
+		// GET 방식으로 조회 페이지로 이동하게 함. 원래의 게시물 데이터를 읽어와 Model에 넣어 전달
+		
+		model.addAttribute(service.read(bno));
+	}
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String modifyPOST(BoardVO board, RedirectAttributes rttr) throws Exception {
+		// POST 방식으로 실제 수정 작업 처리
+		
+		logger.info("mod post....................");
+		
+		service.modify(board);
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		
+		return "redirect:/board/listAll";
+	}
 }
