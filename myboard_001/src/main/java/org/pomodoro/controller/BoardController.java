@@ -36,7 +36,13 @@ public class BoardController {
 		
 		model.addAttribute("result", "success");
 		
-		return "/board/success";	// 결과를 '/board/success'에 해당하는 뷰로 전송
+		//return "/board/success";	// 결과를 '/board/success'에 해당하는 뷰로 전송
+		return "redirect:/board/listAll";	// 새로고침 방지를 위해 리다이렉트 사용
 	}
 	
+	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
+	public void listAll(Model model) throws Exception {
+		
+		logger.info("show all list......................");
+	}
 }
