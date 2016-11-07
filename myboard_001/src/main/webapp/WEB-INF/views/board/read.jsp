@@ -35,4 +35,30 @@
 	<button type="submit" class="btn btn-primary">LIST ALL</button>
 </div>
 
+<!-- jQuery를 사용한 변경된 화면의 처리 -->
+<script>
+$(document).ready(function() {
+
+	var formObj = $("form[role='form']");
+	
+	console.log(formObj);
+	
+	$(".btn-warning").on("click", function() {
+		formObj.attr("action", "/board/modify");
+		formObj.attr("method", "get");
+		formObj.submit();
+	});
+	
+	$(".btn-danger").on("click", function() {
+		formObj.attr("action", "/board/remove");
+		formObj.submit();
+	});
+
+	$(".btn-primary").on("click", function() {
+		self.location = "/board/listAll";
+	});
+
+});
+</script>
+
 <%@include file="../include/footer.jsp"%>
