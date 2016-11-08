@@ -12,11 +12,18 @@ public class CommonExceptionAdvice {
 	private static final Logger logger = LoggerFactory.getLogger(CommonExceptionAdvice.class);
 	
 	@ExceptionHandler(Exception.class)
-	public String common(Exception e) {
+	private ModelAndView errorModelAndView(Exception ex) {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("/error_common");
+		modelAndView.addObject("exception", ex);
 		
-		logger.info(e.toString());
-		
-		return "error_common";
+		return modelAndView;
 	}
+//	public String common(Exception e) {
+//		
+//		logger.info(e.toString());
+//		
+//		return "error_common";
+//	}
 
 }
