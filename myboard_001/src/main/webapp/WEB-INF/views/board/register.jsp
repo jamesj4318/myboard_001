@@ -25,7 +25,18 @@
 
 	<div class="box-footer">
 		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="button" class="btn btn-danger">Cancel</button>
 	</div>
 </form>
+
+<script>
+$(document).ready(function() {
+	
+	$(".btn-danger").on("click", function() {
+		self.location = "${pageContext.request.contextPath}/board/listAll";
+	});
+
+});
+</script>
 
 <%@include file="../include/footer.jsp"%>

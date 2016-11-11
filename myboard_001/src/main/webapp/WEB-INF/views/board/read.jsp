@@ -44,18 +44,18 @@ $(document).ready(function() {
 	console.log(formObj);
 	
 	$(".btn-warning").on("click", function() {
-		formObj.attr("action", "/board/modify");
+		formObj.attr("action", "${pageContext.request.contextPath}/board/modify");
 		formObj.attr("method", "get");
 		formObj.submit();
 	});
 	
 	$(".btn-danger").on("click", function() {
-		formObj.attr("action", "/board/remove");
+		formObj.attr("action", "${pageContext.request.contextPath}/board/remove");
 		formObj.submit();
 	});
 
 	$(".btn-primary").on("click", function() {
-		self.location = "/board/listAll";
+		self.location = "${pageContext.request.contextPath}/board/listAll";
 	});
 
 });

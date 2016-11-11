@@ -20,7 +20,7 @@
 
 	<tr>
 		<td>${boardVO.bno}</td>
-		<td><a href='/board/read?bno=${boardVO.bno}'>${boardVO.title}</a></td>
+		<td><a href='${pageContext.request.contextPath}/board/read?bno=${boardVO.bno}'>${boardVO.title}</a></td>
 		<td>${boardVO.writer}</td>
 		<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 			value="${boardVO.regdate}" /></td>
@@ -31,6 +31,10 @@
 	
 </table>
 
+<div class="box-footer">
+	<button type="submit" class="btn btn-warning">Write</button>
+</div>
+
 <script>
 
 	var result = '${msg}';
@@ -39,6 +43,16 @@
 		alert("처리가 완료되었습니다.");
 	}
 	
+</script>
+
+<script>
+$(document).ready(function() {
+
+	$(".btn-warning").on("click", function() {
+		self.location = "${pageContext.request.contextPath}/board/register";
+	});
+	
+});
 </script>
 
 <%@include file="../include/footer.jsp"%>

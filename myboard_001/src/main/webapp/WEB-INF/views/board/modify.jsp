@@ -44,7 +44,7 @@
 		console.log(formObj);
 		
 		$(".btn-warning").on("click", function() {
-			self.location = "/board/listAll";
+			self.location = "${pageContext.request.contextPath}/board/listAll";
 		});
 		
 		$(".btn-primary").on("click", function() {
